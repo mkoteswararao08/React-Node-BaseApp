@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// eslint-disable-next-line
+import {FirstComponent} from './firstcomponent/firstcomponent'; //if the FirstComponent is a named export
+// import FirstComponent from './FirstComponent/firstComponent';  //if FirstComponent is a default export.
+
+import NavBar from './navbar/navbar';
+import AddUser from './add-user/add-user';
+import ListOfUsers from './list-of-users/list-of-users';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import UpdateUser from './update-user/update-user';
 
 function App() {
+
+  // var changeValue; 
+  // function changeHandler(event){
+  //       console.log('change handler '+event.target.value)
+  //       changeValue=event.target.value;
+  //       // console.log(changeValue)
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div className="App">
+    //   <h1>Hi koteswara Rao {changeValue}</h1>
+    //   <FirstComponent name='Molabanti koteswara Rao' nameChange={changeHandler}></FirstComponent>
+    //   <FirstComponent></FirstComponent>
+    // </div>  
+    <Router > 
+      <div>
+          <NavBar></NavBar>
+          <Route exact path="/addUser" component={AddUser} />
+          {/* <AddUser></AddUser> */}
+          {/* <ListOfUsers></ListOfUsers> */}        
+          <Route path="/UserList" component={ListOfUsers} />
+          <Route path="/updateUser/:id" component={UpdateUser} />
+      </div>
+    </Router>  
   );
 }
 
