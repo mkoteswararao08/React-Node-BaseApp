@@ -10,7 +10,8 @@ class AddUser extends Component{
         // const data = new FormData(event.target);
         // console.log(data)
         console.log(this.state)
-        console.log("hi koti child branch")
+
+        console.log("hi koti master branch");
         fetch('http://localhost:3001/api/addUser',{
             method:'POST',
             body:JSON.stringify(this.state),
